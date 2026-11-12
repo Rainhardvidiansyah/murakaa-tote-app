@@ -13,7 +13,7 @@ db:
 	docker exec -it postgres-in-black-glory psql -U $(POSTGRES_USER) -d $(POSTGRES_DB)
 
 build-image: 
-	docker build -t ibg-app .
+	docker build -t murakaa-tote-app .
 
 run-docker-compose:
 	docker-compose up -d
