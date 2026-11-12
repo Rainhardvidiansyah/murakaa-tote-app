@@ -2,17 +2,17 @@ services:
 
   nginx:
    image: nginx:alpine
-   container_name: nginx-in-black-glory
+   container_name: nginx-murakaa-tote
    ports:
      - 80:80
    volumes:
      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
    depends_on:
-    - ibg-app
+    - murakaa-tote-app
 
-  ibg-app:
+  murakaa-tote-app:
     build: .
-    image: nest-app:latest
+    image: murakaa-tote-app:latest
     # container_name: nest-app
     # ports:
     #   - "3000:3000"
@@ -28,7 +28,7 @@ services:
 
   postgres:
     image: postgres:15-alpine
-    container_name: postgres-in-black-glory
+    container_name: postgres-murakaa-tote
     ports:
       - "5433:5432"
     environment:
@@ -43,7 +43,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: redis-in-black-glory
+    container_name: redis-murakaa-tote
     ports:
       - "${REDIS_PORT}:6379"
     healthcheck:
@@ -54,7 +54,7 @@ services:
 
   mailpit:
    image: axllent/mailpit:latest
-   container_name: mailpit-in-black-glory
+   container_name: mailpit-murakaa-tote
    ports:
     - "8026:8025"  # UI dashboard
     - "1026:1025"  # SMTP port
